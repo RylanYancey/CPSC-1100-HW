@@ -99,27 +99,23 @@ public class TheaterSeatSeller {
 	//don't forget that you must also update the pricesAvailable[] array when
 	//you successfully sell a seat
 	public boolean getByPrice(int price) {
-		boolean retVal = false; //initially false, have not found
 		System.out.println("You chose to buy a ticket with price: $" + price);
 		//************YOUR SOLUTION GOES HERE************//
 		
-		outerloop: 
 		for (int x = 0; x < NUM_ROWS; x++) {
 			for (int y = 0; y < NUM_COLS; y++) {
 				// dont forget to update pricesAvailable
 				if (seats[x][y] == price) {
 					pricesAvailable[(price / 10) - 1]--;
-					// we've found the value, so we can set the RETVAL to true
-					retVal = true;
 					// set the seat to 0 to indicate that it is no longer for sale
 					seats[x][y] = 0;
-					// break as to not iterate unnecessarily. 
-					break outerloop;
+					// return as to not iterate unnecessarily. 
+					return true
 				}
 			}
 		}
 		
-		return retVal; //return value
+		return false; //return value
 	}
 
 	//Method to sell a ticket based on the location given by parameters row,col
