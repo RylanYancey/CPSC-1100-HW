@@ -177,7 +177,7 @@ public class MainClass {
 
   The `New` Keyword indicates you are creating a new instance of a class. In the line `User Joe = new User(...);`, You first tell the compiler what type you are creating
   with `User` and give this instance a name with `Joe`. `New User` is indicates you are not *assigning* Joe to an existing instance of User, but creating a new one. Do
-  not get wrapped up in the fast you say `User` twice, the second User just acts as a place to put your Instance Variables, 
+  not get wrapped up in the fact that you say `User` twice, the second User just acts as a place to put your Instance Variables, 
   or like `int` he diagram above, "Joe McSlow", "Freshman", etc. ( <= these are Instance Variables, or variables belonging to an instance of a class)
   
 ### What about memory?
@@ -188,8 +188,8 @@ public class MainClass {
 ### The This Keyword
 
   In the example above, you may have been confused by the `This` Keyword. Definitionally, `This` is an objects' address. The reason we have to use `This` inside 
-  the constructor of an object is because we need to tell the program how to assign values coming in through the constructor. Since we used the same variable names for incoming
-  values and our Instance Variables, we have to use `This` to differentiate between them. 
+  the constructor of an object is because we need to tell the program how to assign values coming in through the constructor. Since we used the same variable names   
+  for incoming values and our Instance Variables, we have to use `This` to differentiate between them. 
 
   
 
