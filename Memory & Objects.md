@@ -185,11 +185,11 @@ public class MainClass {
   When Objects are created this way, think of it as creating a chunk of memory that is equal to all the primitives inside of it. If a class has three `ints`,
   one `boolean`, and 1 `double`, The total number of bytes that instance will take up is 21. 4 from each `int`, 1 from the `boolean`, and 8 from the `double`. 
   
-### The This Keyword
+### The this Keyword
 
-  In the example above, you may have been confused by the `This` Keyword. Definitionally, `This` is an objects' address. The reason we have to use `This` inside 
+  In the example above, you may have been confused by the `this` Keyword. Definitionally, `this` is an objects' address. The reason we have to use `this` inside 
   the constructor of an object is because we need to tell the program how to assign values coming in through the constructor. Since we used the same variable names   
-  for incoming values and our Instance Variables, we have to use `This` to differentiate between them. 
+  for incoming values and our Instance Variables, we have to use `this` to differentiate between them. 
 
   
 
