@@ -13,12 +13,12 @@ In your computer you have two primary types of storage; your drive (aka SSD, Har
  
   - The Drive:  
     
-    Long - Term storage, similar to your long term memory. You're not always thinking about what your name is, but you can `recall` it when you need to. 
+    Long - Term storage, similar to your long term memory in your brain. You're not always thinking about what your name is, but you can `recall` it when you need to. 
     Most computers have a Drive capacity of 500GB (Giga Bytes) to 2TB (Tera Bytes, or 2,000 GB)
     
  - The RAM:
 
-    Short - Term storage, similar to your short term memory. Some things you do not need to remember for a very long time, so you remember them temporarily 
+    Short - Term storage, similar to your short term memory in your brain. Some things you do not need to remember for a very long time, so you remember them temporarily 
     and then discard that data when it is no longer needed. . Most computers have a RAM capacity of 8 GB - 16 GB. 
     
 ### Why is memory important for programming?
