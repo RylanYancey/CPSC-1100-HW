@@ -17,8 +17,8 @@ public class App {
     public class CapacitorVoltage {
         
         // Scanners declared as statics to avoid unneccessary memory allocation.
-        static Scanner txtFileScan = new Scanner(System.in);
-        static Scanner terminalScan;
+        static Scanner txtFileScan;
+        static Scanner terminalScan = new Scanner(System.in);
         static PrintWriter writer;
 
         /**
