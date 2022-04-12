@@ -1,35 +1,49 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
-/*
-	Lab9 - Recursive Function for finding all substrings of an array 
-	note: my function is different from the way Professor Muhammed says to do it. Results look slightly different but are still valid.
-	This function has two parts, getSubstrings and findAllSubstrings. getSubstrings is a helper function for setting up and calling the recursive function, findAllSubstrings.
-	findAllSubstrings keeps the parameters letter and travel. letter refers to the substring start, and travel to the substring end. 
-	word in findAllSubstrings never changes.
-	First, we get the new string using letter and travel.
-	if letter is equal to the length of the word, we know that we have found all the substrings and can return the arraylist.
-	if new_string == "", we know that letter = travel and we need to increase the letter by one and reset travel, foregoing adding "" to the array.
-	if neither of the previous ifs and valid, we need to add new_string to the arraylist and continue the loop, iterating travel down.
-
-	The way to approach recursive problems is to ask; what happens *for every iteration* of the recursive function?
-*/
-
-public class SubstringGenerator {
-	public static ArrayList<String> getSubstrings(String word) {
-		ArrayList<String> result = findAllSubstrings(new ArrayList<String>(), 0, word.length(), word);
-		result.add("");
-		Collections.reverse(result);
-		return result;
-	}
-
-	public static ArrayList<String> findAllSubstrings(ArrayList<String> strings, int letter, int travel, String word) {
-		String new_string = word.substring(letter, travel);
-		if (letter == word.length()) 
-			return strings;
-		if (new_string == "") 
-			return findAllSubstrings(strings, letter += 1, word.length(), word);
-		strings.add(new_string);
-		return findAllSubstrings(strings, letter, travel -= 1, word);
+public class SubstringTester {
+	public static void main(String[] args) {
+		ArrayList<String> substrings = SubstringGenerator.getSubstrings("ab");
+		System.out.println("Substrings of \"ab\"");
+		System.out.print("Actual:   ");
+		for (String s : substrings) {
+			System.out.print("'" + s + "' ");
+		}
+		System.out.println();
+		System.out.println("Expected: '' 'b' 'a' 'ab'");
+		System.out.println();
+		
+		
+		substrings = SubstringGenerator.getSubstrings("abc");
+		System.out.println("Substrings of \"abc\"");
+		System.out.print("Actual:   ");
+		for (String s : substrings) {
+			System.out.print("'" + s + "' ");
+		}
+		System.out.println();
+		System.out.println("Expected: '' 'c' 'b' 'bc' 'a' 'ab' 'abc'");
+		System.out.println();
+		
+		
+		substrings = SubstringGenerator.getSubstrings("rum");
+		System.out.println("Substrings of \"rum\"");
+		System.out.print("Actual:   ");
+		for (String s : substrings) {
+			System.out.print("'" + s + "' ");
+		}
+		System.out.println();
+		System.out.println("Expected: '' 'm' 'u' 'um' 'r' 'ru' 'rum'");
+		System.out.println();
+		
+		
+		
+		System.out.println("Substrings of \"abc123\"");
+		substrings = SubstringGenerator.getSubstrings("abc123");
+		System.out.print("Actual:   ");
+		for (String s : substrings) {
+			System.out.print("'" + s + "' ");
+		}
+		System.out.println();
+		System.out.println("Expected: '' '3' '2' '23' '1' '12' '123' 'c' 'c1' 'c12' 'c123' 'b' 'bc' 'bc1' 'bc12' 'bc123' 'a' 'ab' 'abc' 'abc1' 'abc12' 'abc123'");
 	}
 }
+
