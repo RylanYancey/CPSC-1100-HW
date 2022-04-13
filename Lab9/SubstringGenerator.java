@@ -24,12 +24,11 @@ public class SubstringGenerator {
 	}
 
 	public static ArrayList<String> findAllSubstrings(ArrayList<String> strings, int letter, int travel, String word) {
-		String new_string = word.substring(letter, travel);
 		if (letter == word.length()) 
 			return strings;
-		if (new_string == "") 
+		if (letter == travel) 
 			return findAllSubstrings(strings, letter += 1, word.length(), word);
-		strings.add(new_string);
+		strings.add(word.substring(letter, travel));
 		return findAllSubstrings(strings, letter, travel -= 1, word);
 	}
 }
