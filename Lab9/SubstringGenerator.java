@@ -15,7 +15,15 @@ import java.util.Collections;
 	The way to approach recursive problems is to ask; what happens *for every iteration* of the recursive function?
 */
 
+/**
+ * Class containing methods for generating and finding substrings.
+ */
 public class SubstringGenerator {
+	/**
+	 * Finds all possible substrings for a given word.
+	 * @param word -> the word you want to find all substrings for.
+	 * @return -> an ArrayList<String> with all the substrings.
+	 */
 	public static ArrayList<String> getSubstrings(String word) {
 		ArrayList<String> result = findAllSubstrings(new ArrayList<String>(), 0, word.length(), word);
 		result.add("");
@@ -23,12 +31,16 @@ public class SubstringGenerator {
 		return result;
 	}
 
-	public static ArrayList<String> findAllSubstrings(ArrayList<String> strings, int letter, int travel, String word) {
-		if (letter == word.length()) 
-			return strings;
-		if (letter == travel) 
-			return findAllSubstrings(strings, letter += 1, word.length(), word);
-		strings.add(word.substring(letter, travel));
+	/**
+	 * Actual recursive method for finding all substrings of a string.
+	 * @param strings -> the array we are filling up.
+	 * @param letter -> the current index of the string we are starting with, or the 'begin index' of the substring.
+	 * @param travel -> the 'end index' of the substring.
+	 * @param word -> the word in question.
+	 * @return an arrayList<String> with all the substrings.
+	 */
+	private static ArrayList<String> findAllSubstrings(ArrayList<String> strings, int letter, int travel, String word) {
+		if (letter == travel) { if (letter == word.length()) { return strings; } return findAllSubstrings(strings, letter += 1, word.length(), word); } strings.add(word.substring(letter, travel));
 		return findAllSubstrings(strings, letter, travel -= 1, word);
 	}
 }
