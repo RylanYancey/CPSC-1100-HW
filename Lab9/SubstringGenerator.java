@@ -12,7 +12,7 @@ import java.util.Collections;
 	if new_string == "", we know that letter = travel and we need to increase the letter by one and reset travel, foregoing adding "" to the array.
 	if neither of the previous ifs and valid, we need to add new_string to the arraylist and continue the loop, iterating travel down.
 
-	The way to approach recursive problems is to ask; what happens *for every iteration* of the recursive function?
+	The way to approach recursive problems is to ask; what happens *for every iteration* of the recursive function? And what needs to change, for every iteration?
 */
 
 /**
@@ -26,8 +26,8 @@ public class SubstringGenerator {
 	 */
 	public static ArrayList<String> getSubstrings(String word) {
 		ArrayList<String> result = findAllSubstrings(new ArrayList<String>(), 0, word.length(), word);
-		result.add("");
-		Collections.reverse(result);
+		result.add(""); // done to make the output look exactly like the test output. not necessary.
+		Collections.reverse(result); // ^^ not necessary.
 		return result;
 	}
 
@@ -40,7 +40,11 @@ public class SubstringGenerator {
 	 * @return an arrayList<String> with all the substrings.
 	 */
 	private static ArrayList<String> findAllSubstrings(ArrayList<String> strings, int letter, int travel, String word) {
-		if (letter == travel) { if (letter == word.length()) { return strings; } return findAllSubstrings(strings, letter += 1, word.length(), word); } strings.add(word.substring(letter, travel));
+		if (letter == word.length())
+			return strings;
+		if (letter == travel)
+			return findAllSubstrings(strings, letter += 1, word.length(), word);
+		strings.add(word.substring(letter, travel));
 		return findAllSubstrings(strings, letter, travel -= 1, word);
 	}
 }
